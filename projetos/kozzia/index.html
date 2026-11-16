@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kozzia: Sistema de gestão para food service com PDV que vende sem internet, ficha técnica, estoque e financeiro | João Gabriel</title>
+<meta name="description" content="Kozzia: Sistema de gestão para food service com PDV que vende sem internet, ficha técnica, estoque e financeiro.">
+<link rel="canonical" href="https://flodyz.github.io/projetos/kozzia/">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="João Gabriel">
+<meta property="og:title" content="Kozzia: Sistema de gestão para food service com PDV que vende sem internet, ficha técnica, estoque e financeiro | João Gabriel">
+<meta property="og:description" content="Kozzia: Sistema de gestão para food service com PDV que vende sem internet, ficha técnica, estoque e financeiro.">
+<meta property="og:url" content="https://flodyz.github.io/projetos/kozzia/">
+<meta property="og:image" content="https://flodyz.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="site-name" href="/">João Gabriel</a>
+    <nav aria-label="Principal">
+      <ul class="site-nav">
+        <li><a href="/#projetos">Projetos</a></li>
+        <li><a href="/#como-trabalho">Como trabalho</a></li>
+        <li><a href="/#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="conteudo" class="project">
+  <header class="project-head wrap">
+    <p class="back"><a href="/#projetos">Todos os projetos</a></p>
+    <h1 class="project-title">Kozzia</h1>
+    <p class="project-tagline">Sistema de gestão para food service com PDV que vende sem internet, ficha técnica, estoque e financeiro</p>
+    <ul class="badges" aria-label="Selos"><li class="badge badge--case">Estudo de caso</li></ul>
+    
+    
+  </header>
+  <div class="wrap"><div class="project-figure"><div class="cover cover--large" style="--cover: #1E5444" aria-hidden="true">
+      <span class="cover-stack">TypeScript, React, Vite, Tailwind CSS</span>
+      <span class="cover-title">Kozzia</span>
+    </div></div></div>
+  <div class="project-layout wrap">
+    <aside class="facts" aria-label="Ficha do projeto">
+      <dl class="facts-list">
+        <div><dt>Status</dt><dd>Em testes com o cliente</dd></div>
+        <div><dt>Ano</dt><dd>2026</dd></div>
+      </dl>
+      <dl class="metrics"><div class="metric"><dt>commits</dt><dd>126</dd></div><div class="metric"><dt>casos de teste</dt><dd>1.825</dd></div><div class="metric"><dt>ADRs</dt><dd>17</dd></div></dl>
+      <h2 class="facts-heading">Stack</h2>
+      <ul class="stack"><li>TypeScript</li><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>TanStack Query</li><li>Zustand</li><li>Dexie</li><li>PWA</li><li>Node.js</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li><li>Zod</li><li>Cloudflare R2</li><li>Vitest</li><li>Playwright</li><li>Docker</li></ul>
+    </aside>
+    <article class="prose">
+<section><h2>O problema</h2><p>Desenvolvi o Kozzia para uma operação de food service que controlava tudo numa planilha: cadastro de insumos, preço dos produtos, vendas e custos lançados à mão. A planilha errava o lucro porque ignorava os custos fixos e a taxa real de cada canal de venda (balcão, delivery próprio, aplicativos), e não havia como saber o custo de cada produto vendido nem o estoque teórico.</p>
+<p>Havia ainda uma exigência de operação: o balcão não pode parar quando a internet cai.</p>
+</section>
+<section><h2>A solução</h2><p>Um sistema web multi-loja que cobre o ciclo do insumo ao lucro:</p>
+<ul>
+<li><strong>Cadastros e cardápio:</strong> insumos com unidade de compra e de uso (e fator de conversão), fornecedores, categorias, produtos com tamanhos, grupos de complementos com mínimo e máximo, e disponibilidade por horário.</li>
+<li><strong>Ficha técnica com custo ao vivo:</strong> cada produto tem a sua ficha, que pode usar outras fichas como ingrediente (preparos intermediários), com histórico de custo por mês.</li>
+<li><strong>Precificação:</strong> taxas configuráveis por canal e por forma de pagamento, rateio de custo fixo e meta de margem, com o preço sugerido por canal.</li>
+<li><strong>PDV e pedidos:</strong> venda no balcão com montagem guiada do produto, pagamentos múltiplos, quadro de pedidos por etapa e delivery por bairro.</li>
+<li><strong>Estoque e compras:</strong> baixa automática pela ficha a cada venda (incluindo complementos e embalagem por pedido), perdas com motivo, movimentos e lista de compras.</li>
+<li><strong>Caixa e financeiro:</strong> abertura e fechamento de caixa com sangria e suprimento, contas a pagar e a receber com recorrência, resumo do mês e um painel inicial com faturamento, lucro estimado e comparação com a semana anterior.</li>
+<li><strong>Equipe e permissões:</strong> papéis por operador (o atendente não vê custo), troca rápida de operador por PIN e exportação dos dados em CSV.</li>
+</ul>
+</section>
+<section><h2>Destaques técnicos</h2><ul>
+<li><strong>PDV offline de verdade.</strong> O aparelho guarda um instantâneo da loja (cardápio, caixa, operadores, clientes recentes) no IndexedDB e, sem internet, grava cada venda, mudança de status e movimento de caixa numa fila local. Quando a conexão volta, a fila é enviada em lotes. A detecção de conexão é por ping ao servidor, não pelo <code>navigator.onLine</code>, que não é confiável. O service worker só guarda os arquivos do app, nunca respostas da API: um cache de API serviria dado velho sem ninguém saber.</li>
+<li><strong>Sincronização idempotente que não aceita qualquer coisa.</strong> Cada evento offline carrega o mesmo corpo da chamada online equivalente, é validado pelo mesmo contrato e tem um id que torna o reenvio seguro. Um evento ruim falha sozinho e não trava o lote. A venda offline já aconteceu, então o servidor aceita o total cobrado no aparelho, mas dentro de limites: preço muito abaixo do atual, relógio do aparelho fora da faixa ou referência de outra loja viram erro permanente, e toda divergência aceita gera auditoria e alerta ao dono. Erro permanente nunca some da fila sozinho, porque isso esconderia dinheiro perdido.</li>
+<li><strong>PIN offline sem abrir brecha.</strong> A troca de operador sem internet confere o PIN no navegador contra um verificador PBKDF2. Uma revisão independente apontou que, com 10.000 combinações, um atendente poderia descobrir o PIN do dono a partir do instantâneo. A decisão foi revisada: só atendentes levam verificador para o aparelho, e virar dono exige internet.</li>
+<li><strong>Multi-tenant testado com duas lojas.</strong> O id da loja vem só do token; cada repositório recebe esse id como primeiro parâmetro e filtra por ele. Recurso de outra loja responde 404, e todo recurso novo precisa de um teste com dois tenants.</li>
+<li><strong>Dinheiro sem ponto flutuante.</strong> Valores em centavos, percentuais em pontos-base e quantidades em decimal. As regras de custo e preço são funções puras num pacote compartilhado entre o front e a API.</li>
+<li><strong>Impressão de comanda pelo navegador.</strong> A comanda sai em ESC/POS direto para a impressora térmica pela Web Serial, com a impressão comum do navegador como alternativa.</li>
+</ul>
+</section>
+<section><h2>Como trabalhei</h2><ul>
+<li><strong>Escopo antes do código:</strong> um documento de produto com benchmark de concorrentes, personas, módulos divididos em fases e riscos, e um protótipo de front com dados de exemplo para validar as telas com o cliente antes do back-end.</li>
+<li><strong>Decisões registradas:</strong> 17 ADRs (sincronização offline, PWA, PIN, imagens, produto com tamanhos, entre outras), cada um com as alternativas rejeitadas.</li>
+<li><strong>Agentes de IA no fluxo:</strong> spec e plano versionados, um <code>CLAUDE.md</code> por app com os padrões obrigatórios, implementação com Claude Code e revisão independente das decisões sensíveis.</li>
+<li><strong>Testes:</strong> 1.825 casos: 584 na API, 783 unitários no front, 162 no pacote compartilhado e 296 end-to-end (Playwright), incluindo jornadas completas e o recarregamento do PWA sem internet.</li>
+<li><strong>Operação:</strong> deploy em Docker pelo Coolify, roteiro de implantação de uma loja do banco vazio ao primeiro dia de venda e um guia de contingência que também aparece dentro do sistema.</li>
+</ul>
+</section>
+    </article>
+  </div>
+  
+  <nav class="neighbours wrap" aria-label="Outros projetos">
+    <a class="neighbour neighbour--prev" href="/projetos/barbaggio/"><span>Anterior:</span> Barbaggio</a>
+    <a class="neighbour neighbour--next" href="/projetos/facgestor/"><span>Próximo:</span> facgestor</a>
+  </nav>
+</main>
+<footer class="site-footer" id="contato">
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-name">João Gabriel</p>
+      <p class="footer-role">Desenvolvedor full stack em Goiânia. Aberto a trabalho remoto como PJ.</p>
+    </div>
+    <ul class="contacts contacts--compact">
+    <li><span class="contact-label">E-mail</span> <a href="mailto:joaogfdiogo@gmail.com">joaogfdiogo@gmail.com</a></li>
+    <li><span class="contact-label">LinkedIn</span> <a href="https://www.linkedin.com/in/joaogfdiogo/">linkedin.com/in/joaogfdiogo</a></li>
+    <li><span class="contact-label">GitHub</span> <a href="https://github.com/Flodyz">github.com/Flodyz</a></li>
+  </ul>
+  </div>
+  <div class="wrap footer-note">
+    <p>Páginas geradas a partir dos estudos de caso em Markdown. Demos com dados fictícios. 2026.</p>
+  </div>
+</footer>
+</body>
+</html>

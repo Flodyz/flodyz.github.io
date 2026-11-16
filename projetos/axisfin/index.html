@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AxisFin: Aplicativo de finanças pessoais para controlar transações, parcelas, orçamentos e metas | João Gabriel</title>
+<meta name="description" content="AxisFin: Aplicativo de finanças pessoais para controlar transações, parcelas, orçamentos e metas.">
+<link rel="canonical" href="https://flodyz.github.io/projetos/axisfin/">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="João Gabriel">
+<meta property="og:title" content="AxisFin: Aplicativo de finanças pessoais para controlar transações, parcelas, orçamentos e metas | João Gabriel">
+<meta property="og:description" content="AxisFin: Aplicativo de finanças pessoais para controlar transações, parcelas, orçamentos e metas.">
+<meta property="og:url" content="https://flodyz.github.io/projetos/axisfin/">
+<meta property="og:image" content="https://flodyz.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="site-name" href="/">João Gabriel</a>
+    <nav aria-label="Principal">
+      <ul class="site-nav">
+        <li><a href="/#projetos">Projetos</a></li>
+        <li><a href="/#como-trabalho">Como trabalho</a></li>
+        <li><a href="/#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="conteudo" class="project">
+  <header class="project-head wrap">
+    <p class="back"><a href="/#projetos">Todos os projetos</a></p>
+    <h1 class="project-title">AxisFin</h1>
+    <p class="project-tagline">Aplicativo de finanças pessoais para controlar transações, parcelas, orçamentos e metas</p>
+    <ul class="badges" aria-label="Selos"><li class="badge badge--access">Acesso sob pedido</li></ul>
+    <div class="actions"><a class="button" href="mailto:joaogfdiogo@gmail.com?subject=Acesso%20ao%20c%C3%B3digo%20do%20AxisFin&amp;body=Ol%C3%A1%2C%20Jo%C3%A3o%20Gabriel.%0A%0AGostaria%20de%20acesso%20de%20leitura%20ao%20c%C3%B3digo%20do%20AxisFin.%0AMeu%20usu%C3%A1rio%20no%20GitHub%3A%20%0A">Código privado: acesso de leitura sob pedido</a></div>
+    
+  </header>
+  <div class="wrap"><div class="project-figure"><div class="cover cover--large" style="--cover: #0E5560" aria-hidden="true">
+      <span class="cover-stack">TypeScript, React, Vite, Tailwind CSS</span>
+      <span class="cover-title">AxisFin</span>
+    </div></div></div>
+  <div class="project-layout wrap">
+    <aside class="facts" aria-label="Ficha do projeto">
+      <dl class="facts-list">
+        <div><dt>Status</dt><dd>Uso interno</dd></div>
+        <div><dt>Ano</dt><dd>2026</dd></div>
+      </dl>
+      <dl class="metrics"><div class="metric"><dt>commits</dt><dd>166</dd></div><div class="metric"><dt>casos de teste</dt><dd>70</dd></div></dl>
+      <h2 class="facts-heading">Stack</h2>
+      <ul class="stack"><li>TypeScript</li><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>Radix UI</li><li>ECharts</li><li>Node.js</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li><li>Jest</li><li>Docker</li></ul>
+    </aside>
+    <article class="prose">
+<section><h2>O problema</h2><p>Controlar as finanças pessoais mês a mês exige saber quanto entrou, quanto saiu e quanto ainda vai sair: parcelas de cartão, assinaturas, contas que se repetem. E exige comparar o que foi previsto com o que foi pago de fato, o que planilha e extrato bancário não fazem sozinhos.</p>
+</section>
+<section><h2>A solução</h2><p>Desenvolvi o AxisFin para uso próprio. Ele registra receitas e despesas com status de pendente ou confirmada, divide compras em parcelas, gera automaticamente os lançamentos recorrentes do mês, controla orçamento por categoria e acompanha metas de economia com depósitos. O painel mostra o fluxo do mês, os gastos por categoria e o comparativo entre o valor estimado e o confirmado.</p>
+<p>É um projeto pessoal, sem usuários externos. A tela de relatórios ainda usa dados fictícios, e as configurações estão parcialmente ligadas ao backend.</p>
+</section>
+<section><h2>Destaques técnicos</h2><ul>
+<li><strong>Parcelamento sem perder centavos.</strong> Uma compra parcelada vira um registro pai e uma parcela por mês, criados juntos numa transação do banco. O valor de cada parcela é arredondado para baixo no centavo e a última absorve a diferença, de modo que a soma bate exatamente com o total. Dá para escolher se a primeira parcela cai no mês atual ou no próximo.</li>
+<li><strong>Estimado contra confirmado.</strong> Cada transação guarda o valor estimado no momento em que é criada, e esse campo nunca é alterado depois; o valor da transação pode ser ajustado até a confirmação do pagamento. O painel compara, mês a mês, o estimado com o confirmado. O valor gasto de um orçamento nunca é gravado: é sempre calculado a partir das despesas confirmadas.</li>
+<li><strong>Recorrência por agendamento.</strong> Um job agendado roda no primeiro dia de cada mês, cria as transações pendentes dos pagamentos recorrentes ativos (contas fixas e assinaturas) e gera lembretes de depósito para as metas em aberto.</li>
+<li><strong>Autenticação completa, sem token acessível ao JavaScript.</strong> Access token de 15 minutos e refresh token de 7 dias em cookies httpOnly, com rotação do refresh token a cada uso e revogação de todas as sessões ao redefinir a senha. Tem verificação de e-mail obrigatória, login com Google, autenticação em dois fatores (TOTP), lista de sessões ativas com revogação e limites de requisição por rota de autenticação.</li>
+<li><strong>Validação nas bordas.</strong> As variáveis de ambiente são validadas com Zod na inicialização (o processo não sobe com configuração inválida), e os erros de validação e de unicidade do banco viram respostas padronizadas num único middleware.</li>
+</ul>
+</section>
+<section><h2>Como trabalhei</h2><ul>
+<li>Desenvolvi com o Claude Code como par de programação: 90 dos 166 commits da <code>main</code> são coassinados pelo Claude.</li>
+<li>O <code>CLAUDE.md</code> do projeto descreve a arquitetura em camadas, o schema, todos os endpoints, o estado de integração de cada tela e o design system, para que o agente siga os padrões existentes em vez de inventar novos.</li>
+<li>O backend tem 70 casos de teste de integração (Jest e Supertest, contra a API e um banco de teste), distribuídos entre autenticação, transações, orçamentos, categorias, metas e pagamentos recorrentes.</li>
+<li>O schema evolui por migrations do Prisma versionadas no repositório.</li>
+</ul>
+</section>
+    </article>
+  </div>
+  
+  <nav class="neighbours wrap" aria-label="Outros projetos">
+    <a class="neighbour neighbour--prev" href="/projetos/nero/"><span>Anterior:</span> NERO</a>
+    <span></span>
+  </nav>
+</main>
+<footer class="site-footer" id="contato">
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-name">João Gabriel</p>
+      <p class="footer-role">Desenvolvedor full stack em Goiânia. Aberto a trabalho remoto como PJ.</p>
+    </div>
+    <ul class="contacts contacts--compact">
+    <li><span class="contact-label">E-mail</span> <a href="mailto:joaogfdiogo@gmail.com">joaogfdiogo@gmail.com</a></li>
+    <li><span class="contact-label">LinkedIn</span> <a href="https://www.linkedin.com/in/joaogfdiogo/">linkedin.com/in/joaogfdiogo</a></li>
+    <li><span class="contact-label">GitHub</span> <a href="https://github.com/Flodyz">github.com/Flodyz</a></li>
+  </ul>
+  </div>
+  <div class="wrap footer-note">
+    <p>Páginas geradas a partir dos estudos de caso em Markdown. Demos com dados fictícios. 2026.</p>
+  </div>
+</footer>
+</body>
+</html>

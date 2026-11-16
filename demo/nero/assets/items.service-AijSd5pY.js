@@ -1,0 +1,1 @@
+import{ap as t,aq as a,ar as s,as as m}from"./index-BxSu3g3O.js";const r={listItems:async(...e)=>m(),createItem:async(...e)=>s(...e),updateItem:async(...e)=>a(...e),deleteItem:async(...e)=>t(...e)};export{r as i};

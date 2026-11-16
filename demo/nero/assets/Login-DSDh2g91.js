@@ -1,0 +1,1 @@
+import{u as a,j as e,L as i}from"./index-BxSu3g3O.js";import{d as r,r as o}from"./react-vendor-nL5Zpkdb.js";import"./ui-vendor-BNZx_vck.js";const m=()=>{const{isAuthenticated:t}=a(),s=r();return o.useEffect(()=>{t&&s("/consulta")},[t,s]),e.jsx("div",{className:"flex items-center justify-center px-4 py-12 mt-24 page-transition",children:e.jsx(i,{})})};export{m as default};

@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NERO: Sistema interno de uma campanha de RPG, com agentes, missões, fichas, magias, rolagens e XP | João Gabriel</title>
+<meta name="description" content="NERO: Sistema interno de uma campanha de RPG, com agentes, missões, fichas, magias, rolagens e XP.">
+<link rel="canonical" href="https://flodyz.github.io/projetos/nero/">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="João Gabriel">
+<meta property="og:title" content="NERO: Sistema interno de uma campanha de RPG, com agentes, missões, fichas, magias, rolagens e XP | João Gabriel">
+<meta property="og:description" content="NERO: Sistema interno de uma campanha de RPG, com agentes, missões, fichas, magias, rolagens e XP.">
+<meta property="og:url" content="https://flodyz.github.io/projetos/nero/">
+<meta property="og:image" content="https://flodyz.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="site-name" href="/">João Gabriel</a>
+    <nav aria-label="Principal">
+      <ul class="site-nav">
+        <li><a href="/#projetos">Projetos</a></li>
+        <li><a href="/#como-trabalho">Como trabalho</a></li>
+        <li><a href="/#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="conteudo" class="project">
+  <header class="project-head wrap">
+    <p class="back"><a href="/#projetos">Todos os projetos</a></p>
+    <h1 class="project-title">NERO</h1>
+    <p class="project-tagline">Sistema interno de uma campanha de RPG, com agentes, missões, fichas, magias, rolagens e XP</p>
+    <ul class="badges" aria-label="Selos"><li class="badge badge--demo">Demo</li></ul>
+    <div class="actions"><a class="button button--primary" href="https://flodyz.github.io/demo/nero/">Ver demo</a></div>
+    <section class="demo-access" aria-labelledby="demo-access-title">
+      <h2 id="demo-access-title">Como entrar na demo</h2>
+      <ul><li>E-mail: <code>diretor@nrpg.demo</code></li><li>Senha: <code>Demo1234</code></li></ul>
+      <p class="demo-note">Roda só no navegador, com dados fictícios e sem backend.</p>
+    </section>
+  </header>
+  <div class="wrap"><figure class="project-figure"><img src="/img/nero/02-ficha.webp" srcset="/img/nero/02-ficha-720.webp 720w, /img/nero/02-ficha.webp 1440w" sizes="(min-width: 1100px) 1040px, 100vw" width="1440" height="900" alt="Ficha do personagem com atributos, habilidades e inventário." fetchpriority="high" decoding="async"></figure></div>
+  <div class="project-layout wrap">
+    <aside class="facts" aria-label="Ficha do projeto">
+      <dl class="facts-list">
+        <div><dt>Status</dt><dd>Uso interno</dd></div>
+        <div><dt>Ano</dt><dd>2026</dd></div>
+      </dl>
+      <dl class="metrics"><div class="metric"><dt>commits</dt><dd>46</dd></div><div class="metric"><dt>migrations SQL</dt><dd>63</dd></div><div class="metric"><dt>Edge Functions</dt><dd>14</dd></div></dl>
+      <h2 class="facts-heading">Stack</h2>
+      <ul class="stack"><li>JavaScript</li><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>Supabase</li><li>PostgreSQL</li><li>TypeScript</li><li>Deno</li><li>Cloudflare R2</li></ul>
+    </aside>
+    <article class="prose">
+<section><h2>O problema</h2><p>Numa campanha de RPG com ambientação militar, cada jogador (um &quot;agente&quot;) tem uma patente, e boa parte da informação do jogo não pode ser vista por todos: relatórios de criaturas, magias, a descrição completa das missões, o XP que cada missão vale. O mestre precisa distribuir missões, aprovar relatórios, conceder XP e acompanhar as fichas, e cada jogador precisa ver só o que a patente libera.</p>
+</section>
+<section><h2>A solução</h2><p>Desenvolvi o sistema interno da campanha. Cada agente entra com a própria conta e vê só o que a patente permite: a base de consulta de criaturas e magias, as missões atribuídas a ele, a ficha do personagem com inventário, habilidades, magias e rolador de dados. O mestre tem um painel próprio para gerenciar agentes, patentes, XP, missões e sessões de jogo.</p>
+<p>O frontend fala direto com o Supabase. As regras de acesso ficam no banco (Row Level Security), e o que precisa de privilégio passa por Edge Functions.</p>
+<p>A demo pública aparece com o nome N.R.P.G., roda só no navegador, com dados fictícios, e não chama o Supabase.</p>
+</section>
+<section><h2>Destaques técnicos</h2><ul>
+<li><strong>Permissão no banco, não na tela.</strong> As 17 patentes se agrupam em 5 níveis de permissão. Um trigger mantém o nível sincronizado quando a patente muda, e o nível vai para os metadados do JWT. As políticas de RLS leem o nível direto do token (<code>auth.jwt()</code>), sem consulta extra por requisição. As 25 tabelas do schema têm RLS habilitado.</li>
+<li><strong>Dado secreto não sai do servidor.</strong> O XP previsto de uma missão nunca é enviado ao cliente: como RLS filtra linhas e não colunas, o frontend consulta views que não incluem o campo. A concessão de XP e o recálculo de nível acontecem numa Edge Function, que também atualiza os atributos dos personagens quando o agente sobe de nível e não devolve valores de XP na resposta.</li>
+<li><strong>Fluxo de missão com aprovação.</strong> A missão passa por disponível, em andamento e concluída; o capitão envia o relatório, e as criaturas e magias descritas nele são criadas no servidor como não publicadas. Só ficam visíveis quando o mestre aprova. Os códigos de criatura e magia são gerados no servidor, nunca no cliente.</li>
+<li><strong>Migrations versionadas e imutáveis.</strong> O schema evolui em 63 arquivos SQL numerados; uma migration aplicada nunca é editada, sempre se cria a próxima. Onde uma política precisaria consultar a própria tabela (personagens companheiros), uma função <code>SECURITY DEFINER</code> evita a recursão de RLS.</li>
+<li><strong>Arquivos grandes fora do banco.</strong> O livro de regras em PDF, que pode passar de 100 MB, vai direto do navegador para o Cloudflare R2 com uma URL assinada gerada por Edge Function.</li>
+<li><strong>Modo demo sem Supabase.</strong> Na branch de demo, o login é verificado contra usuários fictícios e cada serviço devolve dados locais em vez de chamar o banco; as notificações em tempo real ficam desligadas.</li>
+</ul>
+</section>
+<section><h2>Como trabalhei</h2><ul>
+<li>Desenvolvi com o Claude Code como par de programação: 20 dos 46 commits da <code>main</code> são coassinados pelo Claude.</li>
+<li>O <code>CLAUDE.md</code> do projeto documenta o modelo de permissões, as tabelas e views, as regras que não podem ser quebradas (não expor o XP previsto, não gerar códigos no cliente, não editar migrations) e armadilhas já encontradas, para o agente não repetir erros.</li>
+<li>Cada funcionalidade nova passa por especificação e plano antes do código (seis pares de spec e plano, de avatares a companheiros de personagem).</li>
+<li>Não há testes automatizados; a verificação é manual, e o lint roda com política de zero avisos.</li>
+</ul>
+</section>
+    </article>
+  </div>
+  <section class="shots wrap" aria-labelledby="telas-title">
+    <h2 id="telas-title" class="section-title">Telas</h2>
+    <div class="gallery"><figure class="shot">
+          <a href="/img/nero/01-login.webp"><img src="/img/nero/01-login.webp" srcset="/img/nero/01-login-720.webp 720w, /img/nero/01-login.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Tela de entrada, com o acesso de demonstração e o link do livro de regras." loading="lazy" decoding="async"></a>
+          <figcaption>Tela de entrada, com o acesso de demonstração e o link do livro de regras.</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/nero/02-ficha.webp"><img src="/img/nero/02-ficha.webp" srcset="/img/nero/02-ficha-720.webp 720w, /img/nero/02-ficha.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Ficha do personagem com atributos, habilidades e inventário." loading="lazy" decoding="async"></a>
+          <figcaption>Ficha do personagem com atributos, habilidades e inventário.</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/nero/03-escudo-missoes.webp"><img src="/img/nero/03-escudo-missoes.webp" srcset="/img/nero/03-escudo-missoes-720.webp 720w, /img/nero/03-escudo-missoes.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Escudo do Mestre: gestão de missões com tipo, risco, status, nível de permissão e número de agentes." loading="lazy" decoding="async"></a>
+          <figcaption>Escudo do Mestre: gestão de missões com tipo, risco, status, nível de permissão e número de agentes.</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/nero/04-atribuicoes.webp"><img src="/img/nero/04-atribuicoes.webp" srcset="/img/nero/04-atribuicoes-720.webp 720w, /img/nero/04-atribuicoes.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Atribuições: missões disponíveis para o agente, com nível de acesso, risco e tipo." loading="lazy" decoding="async"></a>
+          <figcaption>Atribuições: missões disponíveis para o agente, com nível de acesso, risco e tipo.</figcaption>
+        </figure></div>
+    <div class="gallery gallery--mobile"><figure class="shot shot--mobile">
+          <a href="/img/nero/05-mobile-ficha.webp"><img src="/img/nero/05-mobile-ficha.webp" width="390" height="844" alt="Ficha do personagem no celular." loading="lazy" decoding="async"></a>
+          <figcaption>Ficha do personagem no celular.</figcaption>
+        </figure><figure class="shot shot--mobile">
+          <a href="/img/nero/06-mobile-atribuicoes.webp"><img src="/img/nero/06-mobile-atribuicoes.webp" width="390" height="844" alt="Missões disponíveis no celular." loading="lazy" decoding="async"></a>
+          <figcaption>Missões disponíveis no celular.</figcaption>
+        </figure></div>
+  </section>
+  <nav class="neighbours wrap" aria-label="Outros projetos">
+    <a class="neighbour neighbour--prev" href="/projetos/facgestor/"><span>Anterior:</span> facgestor</a>
+    <a class="neighbour neighbour--next" href="/projetos/axisfin/"><span>Próximo:</span> AxisFin</a>
+  </nav>
+</main>
+<footer class="site-footer" id="contato">
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-name">João Gabriel</p>
+      <p class="footer-role">Desenvolvedor full stack em Goiânia. Aberto a trabalho remoto como PJ.</p>
+    </div>
+    <ul class="contacts contacts--compact">
+    <li><span class="contact-label">E-mail</span> <a href="mailto:joaogfdiogo@gmail.com">joaogfdiogo@gmail.com</a></li>
+    <li><span class="contact-label">LinkedIn</span> <a href="https://www.linkedin.com/in/joaogfdiogo/">linkedin.com/in/joaogfdiogo</a></li>
+    <li><span class="contact-label">GitHub</span> <a href="https://github.com/Flodyz">github.com/Flodyz</a></li>
+  </ul>
+  </div>
+  <div class="wrap footer-note">
+    <p>Páginas geradas a partir dos estudos de caso em Markdown. Demos com dados fictícios. 2026.</p>
+  </div>
+</footer>
+</body>
+</html>

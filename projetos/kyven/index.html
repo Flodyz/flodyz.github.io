@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kyven: Site, API própria e sistema de gestão (CRM, prospecção, agenda e tarefas com lembretes no celular) da Kyven | João Gabriel</title>
+<meta name="description" content="Kyven: Site, API própria e sistema de gestão (CRM, prospecção, agenda e tarefas com lembretes no celular) da Kyven.">
+<link rel="canonical" href="https://flodyz.github.io/projetos/kyven/">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="João Gabriel">
+<meta property="og:title" content="Kyven: Site, API própria e sistema de gestão (CRM, prospecção, agenda e tarefas com lembretes no celular) da Kyven | João Gabriel">
+<meta property="og:description" content="Kyven: Site, API própria e sistema de gestão (CRM, prospecção, agenda e tarefas com lembretes no celular) da Kyven.">
+<meta property="og:url" content="https://flodyz.github.io/projetos/kyven/">
+<meta property="og:image" content="https://flodyz.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="site-name" href="/">João Gabriel</a>
+    <nav aria-label="Principal">
+      <ul class="site-nav">
+        <li><a href="/#projetos">Projetos</a></li>
+        <li><a href="/#como-trabalho">Como trabalho</a></li>
+        <li><a href="/#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="conteudo" class="project">
+  <header class="project-head wrap">
+    <p class="back"><a href="/#projetos">Todos os projetos</a></p>
+    <h1 class="project-title">Kyven</h1>
+    <p class="project-tagline">Site, API própria e sistema de gestão (CRM, prospecção, agenda e tarefas com lembretes no celular) da Kyven</p>
+    <ul class="badges" aria-label="Selos"><li class="badge badge--code">Código aberto</li></ul>
+    <div class="actions"><a class="button button--primary" href="https://github.com/Flodyz/kyven">Ver código</a></div>
+    
+  </header>
+  <div class="wrap"><figure class="project-figure"><img src="/img/kyven/01-landing.webp" srcset="/img/kyven/01-landing-720.webp 720w, /img/kyven/01-landing.webp 1440w" sizes="(min-width: 1100px) 1040px, 100vw" width="1440" height="900" alt="Página inicial do site." fetchpriority="high" decoding="async"></figure></div>
+  <div class="project-layout wrap">
+    <aside class="facts" aria-label="Ficha do projeto">
+      <dl class="facts-list">
+        <div><dt>Status</dt><dd>Em produção</dd></div>
+        <div><dt>Ano</dt><dd>2026</dd></div>
+      </dl>
+      <dl class="metrics"><div class="metric"><dt>commits</dt><dd>122</dd></div><div class="metric"><dt>casos de teste</dt><dd>775</dd></div><div class="metric"><dt>ADRs</dt><dd>11</dd></div><div class="metric"><dt>rotas na API</dt><dd>50</dd></div></dl>
+      <h2 class="facts-heading">Stack</h2>
+      <ul class="stack"><li>TypeScript</li><li>Node.js 22</li><li>Express 5</li><li>Prisma 6</li><li>PostgreSQL 17</li><li>Better Auth</li><li>Zod</li><li>React 19</li><li>Vite</li><li>Tailwind CSS v4</li><li>TanStack Query</li><li>dnd-kit</li><li>Web Push</li><li>Vitest</li><li>Supertest</li><li>Docker</li><li>Coolify</li></ul>
+    </aside>
+    <article class="prose">
+<section><h2>O problema</h2><p>A Kyven atende pequenos negócios e precisava de um lugar só para o comercial: os contatos do site ficavam no Supabase, o acompanhamento de leads e a prospecção ativa (listas de negócios abordados por WhatsApp ou telefone) ficavam em planilha, e compromissos e tarefas dependiam de lembrar. A meta era ter os dados num banco próprio, na VPS que já servia o site, e receber os avisos no celular na hora certa, sem instalar aplicativo nativo.</p>
+</section>
+<section><h2>A solução</h2><p>Desenvolvi um monorepo com três apps independentes, cada um com seu Dockerfile e publicado como recurso próprio no Coolify:</p>
+<ul>
+<li><strong>Landing</strong> (React 19 + Vite): site institucional pré-renderizado para SEO; o formulário de contato cria o lead na API.</li>
+<li><strong>API</strong> (Node 22, TypeScript, Express 5, Prisma, PostgreSQL 17): autenticação com 2FA e login social, CRM com funil, prospecção com importação de planilha, agenda com recorrência, tarefas, projetos e um agendador de lembretes que entrega Web Push.</li>
+<li><strong>Gestão</strong> (React 19 + TypeScript, PWA): funil de leads em kanban com arrastar e soltar, tela de prospecção, agenda (dia, semana e lista), quadro de tarefas, projetos e configurações de notificação.</li>
+</ul>
+</section>
+<section><h2>Destaques técnicos</h2><ul>
+<li><strong>Saída do Supabase para uma API própria.</strong> Postgres próprio e autenticação dentro da API com Better Auth (e-mail e senha, Google, GitHub, TOTP), sem serviço de auth com custo recorrente. Toda criação de lead passa por um único serviço, compartilhado pelo formulário do site, pelo cadastro manual e pela importação. (ADR 0001)</li>
+<li><strong>Camadas <code>routes</code> / <code>service</code> / <code>repository</code>.</strong> A rota valida com Zod, o serviço guarda a regra e não toca no banco, o repositório é o único que usa o Prisma. Erros do Prisma de integridade (<code>P2025</code>, <code>P2002</code>, <code>P2003</code>) viram 404, 409 e 400, e toda resposta de erro tem o mesmo formato. (ADR 0020, ADR 0022)</li>
+<li><strong>Agendador de lembretes dentro do processo da API.</strong> Projetei o agendador sem Redis nem cron externo, porque a VPS é pequena: a cada 30 s um ciclo toma um advisory lock do Postgres, calcula os avisos devidos com uma função pura e grava as notificações com chave de deduplicação na mesma transação. Reiniciar ou subir mais de uma instância não repete aviso, e depois de uma parada longa nada sai com mais de 15 min de atraso. A readiness (<code>/health/ready</code>) acusa agendador parado. (ADR 0025)</li>
+<li><strong>Web Push com PWA sem cache offline.</strong> As chaves VAPID vêm do ambiente ou são geradas na primeira subida e guardadas no banco, então o push funciona sem configuração manual. O service worker só trata push e clique: um cache offline serviria a versão velha depois de cada deploy. O endpoint de inscrição só aceita serviços de push conhecidos, o que fecha um caminho de SSRF. (ADR 0031)</li>
+<li><strong>2FA revisto com uma ADR nova.</strong> A primeira decisão recusava o login social de quem tinha 2FA, porque o plugin só pedia o código no login por senha; isso na prática desligava o Google e o GitHub para essas contas. A decisão foi revista: o TOTP vale no login por senha e o login social confia no 2FA do provedor. A ADR antiga continua no repositório, marcada como substituída. (ADR 0023, ADR 0041)</li>
+<li><strong>Dinheiro e datas sem ambiguidade.</strong> Valores em centavos inteiros no banco e em reais na API; &quot;hoje&quot; é o dia civil em <code>America/Sao_Paulo</code>, nunca o fuso do servidor, com teste que roda a mesma regra com o servidor em São Paulo, UTC e Tóquio. Ocorrências de eventos recorrentes são calculadas da regra, não gravadas uma a uma. (ADR 0022, ADR 0025)</li>
+</ul>
+</section>
+<section><h2>Como trabalhei</h2><ul>
+<li><strong>ADRs numeradas</strong> (11 no repositório): cada decisão com contexto, alternativas rejeitadas e consequências, commitada junto com a mudança.</li>
+<li><strong>Testes contra banco real.</strong> Os 356 casos da API sobem a camada HTTP com Supertest contra um Postgres embutido criado pela própria suíte, sem Docker. A gestão tem 419 casos com Vitest e Testing Library, com a API simulada.</li>
+<li><strong>Desenvolvimento com Claude Code e agentes.</strong> O <code>CLAUDE.md</code> funciona como contrato: comandos de cada app, regra de camadas, formato de erro, fuso, tokens de estilo e onde ficam as mensagens. Os agentes trabalham a partir dele e de planos escritos antes de codar; o mesmo arquivo serve de documentação para quem chega ao código.</li>
+<li><strong>Deploy documentado e reproduzível:</strong> um Dockerfile por app, migrations aplicadas na subida do container, health check que não depende do banco. O passo a passo está em <code>docs/deploy.md</code>.</li>
+</ul>
+</section>
+    </article>
+  </div>
+  <section class="shots wrap" aria-labelledby="telas-title">
+    <h2 id="telas-title" class="section-title">Telas</h2>
+    <div class="gallery"><figure class="shot">
+          <a href="/img/kyven/01-landing.webp"><img src="/img/kyven/01-landing.webp" srcset="/img/kyven/01-landing-720.webp 720w, /img/kyven/01-landing.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Página inicial do site." loading="lazy" decoding="async"></a>
+          <figcaption>Página inicial do site.</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/kyven/02-crm-funil.webp"><img src="/img/kyven/02-crm-funil.webp" srcset="/img/kyven/02-crm-funil-720.webp 720w, /img/kyven/02-crm-funil.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Funil de leads em kanban." loading="lazy" decoding="async"></a>
+          <figcaption>Funil de leads em kanban.</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/kyven/03-crm-lead.webp"><img src="/img/kyven/03-crm-lead.webp" srcset="/img/kyven/03-crm-lead-720.webp 720w, /img/kyven/03-crm-lead.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Painel de detalhe do lead." loading="lazy" decoding="async"></a>
+          <figcaption>Painel de detalhe do lead.</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/kyven/04-prospeccao.webp"><img src="/img/kyven/04-prospeccao.webp" srcset="/img/kyven/04-prospeccao-720.webp 720w, /img/kyven/04-prospeccao.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Tabela de prospecção e importação de planilha." loading="lazy" decoding="async"></a>
+          <figcaption>Tabela de prospecção e importação de planilha.</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/kyven/05-agenda.webp"><img src="/img/kyven/05-agenda.webp" srcset="/img/kyven/05-agenda-720.webp 720w, /img/kyven/05-agenda.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Agenda na visão de semana." loading="lazy" decoding="async"></a>
+          <figcaption>Agenda na visão de semana.</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/kyven/06-tarefas.webp"><img src="/img/kyven/06-tarefas.webp" srcset="/img/kyven/06-tarefas-720.webp 720w, /img/kyven/06-tarefas.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Quadro de tarefas." loading="lazy" decoding="async"></a>
+          <figcaption>Quadro de tarefas.</figcaption>
+        </figure></div>
+    <div class="gallery gallery--mobile"><figure class="shot shot--mobile">
+          <a href="/img/kyven/07-mobile.webp"><img src="/img/kyven/07-mobile.webp" width="390" height="844" alt="Gestão instalada no celular, com notificação." loading="lazy" decoding="async"></a>
+          <figcaption>Gestão instalada no celular, com notificação.</figcaption>
+        </figure></div>
+  </section>
+  <nav class="neighbours wrap" aria-label="Outros projetos">
+    <span></span>
+    <a class="neighbour neighbour--next" href="/projetos/rpstudio/"><span>Próximo:</span> RPStudio</a>
+  </nav>
+</main>
+<footer class="site-footer" id="contato">
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-name">João Gabriel</p>
+      <p class="footer-role">Desenvolvedor full stack em Goiânia. Aberto a trabalho remoto como PJ.</p>
+    </div>
+    <ul class="contacts contacts--compact">
+    <li><span class="contact-label">E-mail</span> <a href="mailto:joaogfdiogo@gmail.com">joaogfdiogo@gmail.com</a></li>
+    <li><span class="contact-label">LinkedIn</span> <a href="https://www.linkedin.com/in/joaogfdiogo/">linkedin.com/in/joaogfdiogo</a></li>
+    <li><span class="contact-label">GitHub</span> <a href="https://github.com/Flodyz">github.com/Flodyz</a></li>
+  </ul>
+  </div>
+  <div class="wrap footer-note">
+    <p>Páginas geradas a partir dos estudos de caso em Markdown. Demos com dados fictícios. 2026.</p>
+  </div>
+</footer>
+</body>
+</html>

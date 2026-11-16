@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RPStudio: Estúdio de transmissão no navegador para mesas de RPG online, das câmeras dos jogadores à cena que chega a quem assiste | João Gabriel</title>
+<meta name="description" content="RPStudio: Estúdio de transmissão no navegador para mesas de RPG online, das câmeras dos jogadores à cena que chega a quem assiste.">
+<link rel="canonical" href="https://flodyz.github.io/projetos/rpstudio/">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="João Gabriel">
+<meta property="og:title" content="RPStudio: Estúdio de transmissão no navegador para mesas de RPG online, das câmeras dos jogadores à cena que chega a quem assiste | João Gabriel">
+<meta property="og:description" content="RPStudio: Estúdio de transmissão no navegador para mesas de RPG online, das câmeras dos jogadores à cena que chega a quem assiste.">
+<meta property="og:url" content="https://flodyz.github.io/projetos/rpstudio/">
+<meta property="og:image" content="https://flodyz.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="site-name" href="/">João Gabriel</a>
+    <nav aria-label="Principal">
+      <ul class="site-nav">
+        <li><a href="/#projetos">Projetos</a></li>
+        <li><a href="/#como-trabalho">Como trabalho</a></li>
+        <li><a href="/#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="conteudo" class="project">
+  <header class="project-head wrap">
+    <p class="back"><a href="/#projetos">Todos os projetos</a></p>
+    <h1 class="project-title">RPStudio</h1>
+    <p class="project-tagline">Estúdio de transmissão no navegador para mesas de RPG online, das câmeras dos jogadores à cena que chega a quem assiste</p>
+    <ul class="badges" aria-label="Selos"><li class="badge badge--access">Acesso sob pedido</li></ul>
+    <div class="actions"><a class="button" href="mailto:joaogfdiogo@gmail.com?subject=Acesso%20ao%20c%C3%B3digo%20do%20RPStudio&amp;body=Ol%C3%A1%2C%20Jo%C3%A3o%20Gabriel.%0A%0AGostaria%20de%20acesso%20de%20leitura%20ao%20c%C3%B3digo%20do%20RPStudio.%0AMeu%20usu%C3%A1rio%20no%20GitHub%3A%20%0A">Código privado: acesso de leitura sob pedido</a></div>
+    
+  </header>
+  <div class="wrap"><div class="project-figure"><div class="cover cover--large" style="--cover: #4B2A6E" aria-hidden="true">
+      <span class="cover-stack">TypeScript, React, Vite, Node.js</span>
+      <span class="cover-title">RPStudio</span>
+    </div></div></div>
+  <div class="project-layout wrap">
+    <aside class="facts" aria-label="Ficha do projeto">
+      <dl class="facts-list">
+        <div><dt>Status</dt><dd>Em produção</dd></div>
+        <div><dt>Ano</dt><dd>2026</dd></div>
+      </dl>
+      <dl class="metrics"><div class="metric"><dt>commits</dt><dd>788</dd></div><div class="metric"><dt>casos de teste</dt><dd>4.641</dd></div><div class="metric"><dt>arquivos de teste</dt><dd>381</dd></div><div class="metric"><dt>ADRs</dt><dd>56</dd></div></dl>
+      <h2 class="facts-heading">Stack</h2>
+      <ul class="stack"><li>TypeScript</li><li>React</li><li>Vite</li><li>Node.js</li><li>Express</li><li>Socket.IO</li><li>Prisma</li><li>PostgreSQL</li><li>LiveKit</li><li>WebRTC</li><li>Web Audio</li><li>Cloudflare R2</li><li>Docker</li><li>GitHub Actions</li></ul>
+    </aside>
+    <article class="prose">
+<section><h2>O problema</h2><p>Uma mesa de RPG transmitida tem um mestre, vários jogadores em casas diferentes, um tabletop virtual, música, ambiências e efeitos sonoros. O jeito comum de montar isso junta ferramentas soltas: um serviço para trazer as câmeras, o OBS para compor a cena e transmitir, e o mestre trocando layouts e sons à mão durante a sessão. A configuração é trabalhosa, pesa em PC fraco e qualquer queda de câmera vira tela preta na transmissão.</p>
+<p>Projetei o RPStudio para substituir esse conjunto por um aplicativo web: cada jogador abre um link, liga a câmera (do celular ou do PC) e o mestre controla tudo por um painel.</p>
+</section>
+<section><h2>A solução</h2><ul>
+<li><strong>Câmeras por link:</strong> jogador não tem conta. Cada participante recebe um link pessoal, escolhe a câmera, vê a prévia e transmite. O celular mantém a tela ligada, reconecta sozinho e acompanha o giro do aparelho.</li>
+<li><strong>Grade da cena:</strong> as câmeras são montadas sobre uma borda PNG de 1920x1080 com áreas transparentes. O sistema detecta os espaços da borda e sugere quem fica em cada um, sem medir pixel à mão. Há um layout por número de jogadores, e no modo automático a grade troca de layout sozinha quando alguém liga ou desliga a câmera.</li>
+<li><strong>Cenas:</strong> o mestre trabalha com a cena no ar e a próxima, montada fora do ar (layout, quem aparece, o que vai no palco: tabletop, logo, imagem ou vídeo). &quot;Colocar no ar&quot; troca tudo de uma vez, com corte ou fade.</li>
+<li><strong>Som da mesa:</strong> decks de música, camadas de ambiência e efeitos disparados pelo painel, com mixer, faders e medidores de nível.</li>
+<li><strong>Dois modos de transmissão:</strong> pelo OBS (o OBS carrega a grade como fonte e transmite por WHIP) ou só pelo navegador, sem instalar nada: o mestre compartilha o tabletop pelo painel e cada jogador recebe a cena montada no próprio aparelho.</li>
+<li><strong>Biblioteca e campanhas:</strong> imagens, vídeos e áudios da campanha em pastas, com busca, prévia e aviso ao apagar o que está em uso; várias mesas por campanha e membros com permissões por área.</li>
+</ul>
+</section>
+<section><h2>Destaques técnicos</h2><ul>
+<li><strong>A cena é montada no aparelho de quem assiste, não no servidor.</strong> O servidor do projeto tem 2 vCPUs e não comporta compor e codificar vídeo 1080p. No modo navegador, a página do jogador recebe as câmeras e o tabletop direto do servidor de mídia, recebe o estado da cena pelo socket e toca a trilha localmente. O servidor só repassa mídia. Isso também tira uma recodificação do caminho e reduz o atraso.</li>
+<li><strong>Cada tela pede só o vídeo que vai mostrar.</strong> A grade assina apenas as câmeras de quem aparece na cena atual e, para cada espaço, pede ao servidor a camada do simulcast que cobre aquele tamanho. Uma câmera num espaço pequeno não baixa 1080p.</li>
+<li><strong>Quem avisa é a tela, quem decide é o servidor.</strong> Gatilhos do tipo &quot;quando o vídeo do palco acabar, vai para a próxima cena&quot; precisam funcionar com o painel fechado e com a cena aberta em mais de um lugar. A tela que toca avisa início e fim; o servidor decide dentro de uma transação e usa uma versão da cena no ar para descartar avisos atrasados ou repetidos. Dois avisos do mesmo fim não trocam a cena duas vezes.</li>
+<li><strong>Ordem garantida nos eventos de tempo real.</strong> Os comandos que mudam uma mesa (trocar cena, ajustar o palco, disparar som) passam por uma fila por mesa e rodam um de cada vez, da validação ao aviso aos clientes. Mesas diferentes não esperam umas pelas outras. Isso resolveu gravações fora de ordem com dois painéis abertos ou com o arraste do zoom mandando ajustes a cada 100 ms.</li>
+<li><strong>O nível do mixer é medido onde o som toca.</strong> O painel mostra o nível real de cada canal, medido na tela que toca o áudio, depois do fader, e repassado sem passar pelo banco. Trocar de cena não desfaz o ajuste de volume que o mestre fez de ouvido.</li>
+<li><strong>Arquivos em bucket privado, com links de vida curta.</strong> O envio vai direto do navegador para o armazenamento por link assinado, e a leitura usa links que vencem e são renovados. Vídeos longos tocam por streaming, com recuperação quando um link vence no meio da reprodução.</li>
+</ul>
+</section>
+<section><h2>Como trabalhei</h2><ul>
+<li><strong>Decisões registradas:</strong> 56 ADRs no repositório, cada um com contexto, alternativas rejeitadas e consequências. Quando uma decisão muda (por exemplo, a regra de uma mesa ao vivo por vez, que deixou de valer), um ADR novo substitui o antigo e diz isso.</li>
+<li><strong>Spec, plano e tarefas:</strong> cada fase começa num documento de desenho (metas, não metas e o que seria fracasso), aprovado antes de qualquer código, vira um plano de implementação e é quebrada em tarefas pequenas (mais de 130 arquivos de tarefa), executadas com Claude Code e agentes, em TDD.</li>
+<li><strong>Testes:</strong> 4.641 casos em 381 arquivos: 4.440 unitários e de integração (Vitest, com Postgres e servidor de mídia reais nos testes da API) e 201 end-to-end (Playwright) que abrem o fluxo completo no navegador.</li>
+<li><strong>CI e entrega:</strong> GitHub Actions roda typecheck, lint, formatação e testes a cada push, constrói as imagens Docker e dispara o deploy. Há dois ambientes, homologação e produção, cada um com o seu branch.</li>
+</ul>
+</section>
+    </article>
+  </div>
+  
+  <nav class="neighbours wrap" aria-label="Outros projetos">
+    <a class="neighbour neighbour--prev" href="/projetos/kyven/"><span>Anterior:</span> Kyven</a>
+    <a class="neighbour neighbour--next" href="/projetos/barbaggio/"><span>Próximo:</span> Barbaggio</a>
+  </nav>
+</main>
+<footer class="site-footer" id="contato">
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-name">João Gabriel</p>
+      <p class="footer-role">Desenvolvedor full stack em Goiânia. Aberto a trabalho remoto como PJ.</p>
+    </div>
+    <ul class="contacts contacts--compact">
+    <li><span class="contact-label">E-mail</span> <a href="mailto:joaogfdiogo@gmail.com">joaogfdiogo@gmail.com</a></li>
+    <li><span class="contact-label">LinkedIn</span> <a href="https://www.linkedin.com/in/joaogfdiogo/">linkedin.com/in/joaogfdiogo</a></li>
+    <li><span class="contact-label">GitHub</span> <a href="https://github.com/Flodyz">github.com/Flodyz</a></li>
+  </ul>
+  </div>
+  <div class="wrap footer-note">
+    <p>Páginas geradas a partir dos estudos de caso em Markdown. Demos com dados fictícios. 2026.</p>
+  </div>
+</footer>
+</body>
+</html>

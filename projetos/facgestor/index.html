@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>facgestor: Sistema de gestão para fábricas de alimentos congelados, do pedido de ingrediente à entrega do produto | João Gabriel</title>
+<meta name="description" content="facgestor: Sistema de gestão para fábricas de alimentos congelados, do pedido de ingrediente à entrega do produto.">
+<link rel="canonical" href="https://flodyz.github.io/projetos/facgestor/">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="João Gabriel">
+<meta property="og:title" content="facgestor: Sistema de gestão para fábricas de alimentos congelados, do pedido de ingrediente à entrega do produto | João Gabriel">
+<meta property="og:description" content="facgestor: Sistema de gestão para fábricas de alimentos congelados, do pedido de ingrediente à entrega do produto.">
+<meta property="og:url" content="https://flodyz.github.io/projetos/facgestor/">
+<meta property="og:image" content="https://flodyz.github.io/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+<header class="site-header">
+  <div class="wrap site-header-inner">
+    <a class="site-name" href="/">João Gabriel</a>
+    <nav aria-label="Principal">
+      <ul class="site-nav">
+        <li><a href="/#projetos">Projetos</a></li>
+        <li><a href="/#como-trabalho">Como trabalho</a></li>
+        <li><a href="/#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main id="conteudo" class="project">
+  <header class="project-head wrap">
+    <p class="back"><a href="/#projetos">Todos os projetos</a></p>
+    <h1 class="project-title">facgestor</h1>
+    <p class="project-tagline">Sistema de gestão para fábricas de alimentos congelados, do pedido de ingrediente à entrega do produto</p>
+    <ul class="badges" aria-label="Selos"><li class="badge badge--demo">Demo</li></ul>
+    <div class="actions"><a class="button button--primary" href="https://flodyz.github.io/demo/facgestor/">Ver demo</a></div>
+    <section class="demo-access" aria-labelledby="demo-access-title">
+      <h2 id="demo-access-title">Como entrar na demo</h2>
+      <ul><li>Na tela de entrada, clique num dos perfis prontos (Administrador ou Funcionário) para preencher o login.</li><li>Senha: <code>Demo@1234</code></li></ul>
+      <p class="demo-note">Roda só no navegador, com dados fictícios e sem backend.</p>
+    </section>
+  </header>
+  <div class="wrap"><figure class="project-figure"><img src="/img/facgestor/02-dashboard.webp" srcset="/img/facgestor/02-dashboard-720.webp 720w, /img/facgestor/02-dashboard.webp 1440w" sizes="(min-width: 1100px) 1040px, 100vw" width="1440" height="900" alt="Painel com indicadores de pedidos, produção e financeiro." fetchpriority="high" decoding="async"></figure></div>
+  <div class="project-layout wrap">
+    <aside class="facts" aria-label="Ficha do projeto">
+      <dl class="facts-list">
+        <div><dt>Status</dt><dd>Em desenvolvimento</dd></div>
+        <div><dt>Ano</dt><dd>2026</dd></div>
+      </dl>
+      <dl class="metrics"><div class="metric"><dt>commits</dt><dd>41</dd></div></dl>
+      <h2 class="facts-heading">Stack</h2>
+      <ul class="stack"><li>TypeScript</li><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>React Query</li><li>React Hook Form</li><li>Zod</li><li>Node.js</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li><li>Docker</li></ul>
+    </aside>
+    <article class="prose">
+<section><h2>O problema</h2><p>Uma fábrica de congelados controla muita coisa ao mesmo tempo: ingredientes comprados em embalagens de tamanhos diferentes, receitas que rendem uma quantidade variável, lotes com validade, pedidos de clientes e revendedores, frete, ponto dos funcionários e nota fiscal. Planilhas soltas não respondem a perguntas simples, como quanto custa de fato produzir um item hoje ou qual lote deve sair primeiro.</p>
+</section>
+<section><h2>A solução</h2><p>Desenvolvi um sistema web que cobre a operação inteira de uma fábrica de congelados: clientes, fornecedores, funcionários, produtos, fichas técnicas (receitas), estoque de ingredientes e de produto acabado, produção por lote, pedidos, transportadoras, controle de ponto, financeiro, análise de custos e importação de cadastros por CSV. A versão atual é multiempresa: cada empresa vê só os próprios dados, e as permissões de cada perfil são configuráveis por tela.</p>
+<p>A demo pública roda só no navegador, com dados fictícios e sem backend.</p>
+</section>
+<section><h2>Destaques técnicos</h2><ul>
+<li><strong>Custo real por receita.</strong> O custo de cada ingrediente vem da última entrada de mercadoria confirmada, convertida para a unidade de uso (grama, mililitro, unidade). O rendimento usado no cálculo é o da última produção concluída, não o previsto na ficha técnica. Sobre isso entram percentuais configuráveis de água, energia, combustível e embalagem, a margem, a comissão e a mão de obra por unidade. O resultado é um preço sugerido que acompanha o preço de compra.</li>
+<li><strong>Produção que mexe no estoque de verdade.</strong> Iniciar um lote confere o estoque de cada ingrediente da receita e bloqueia a produção se faltar algo, listando o que falta. A baixa dos ingredientes e as movimentações de estoque acontecem numa transação do banco. Ao concluir, o sistema cria o lote do produto com validade calculada a partir da data de fabricação e da vida útil do produto.</li>
+<li><strong>FEFO na expedição.</strong> Quando um pedido passa a &quot;enviado&quot;, o estoque é baixado alocando os lotes que vencem primeiro (First-Expiry-First-Out), com conversão entre venda por pacote e por unidade, e os lançamentos financeiros são gerados na mesma transação.</li>
+<li><strong>Isolamento entre empresas e permissões por tela.</strong> As consultas filtram pelo <code>tenantId</code> do usuário (todos os controllers e services foram auditados para isso), e operações sobre um registro conferem a posse antes de agir (busca por id e empresa, nunca só por id). As rotas passam por <code>checkPermission(tela, ação)</code>, com as permissões guardadas no banco por perfil, em vez de papéis fixos no código.</li>
+<li><strong>Emissão de NF-e direto na SEFAZ.</strong> Implementei a geração do XML no layout 4.0, a assinatura digital com certificado A1 (RSA-SHA256), o envio por SOAP 1.2 com autenticação por certificado e o tratamento dos códigos de retorno, com a senha do certificado cifrada em AES-256-GCM. A orquestração de ponta a ponta ficou pendente e o módulo foi arquivado na versão atual, com a decisão de passar a emissão para um gateway de NF-e.</li>
+<li><strong>Modo demo sem backend.</strong> Uma flag de build (<code>VITE_IS_DEMO</code>) faz o cliente HTTP devolver respostas locais sem fazer nenhuma requisição, os hooks de dados leem de uma base fictícia e o login aceita usuários de demonstração. A demo fica numa branch isolada, que nunca é mesclada com a de produção.</li>
+</ul>
+</section>
+<section><h2>Como trabalhei</h2><ul>
+<li>Desenvolvi com o Claude Code como par de programação: a maior parte dos commits da branch de desenvolvimento atual é coassinada pelo Claude.</li>
+<li>Mantenho um <code>CLAUDE.md</code> com as regras que o agente precisa seguir: o filtro obrigatório por empresa (com o anti-padrão proibido escrito), o uso de <code>checkPermission</code> em toda rota, o formato de resposta da API e o fluxo de schema do Prisma.</li>
+<li>Funcionalidades maiores passam por especificação e plano antes do código (por exemplo, notificações de pedido por e-mail, com spec e plano versionados em <code>docs/superpowers/</code>).</li>
+<li>Os testes automatizados (Jest) cobrem a importação de CSV, o estoque e a segurança da API; não são o ponto forte do projeto.</li>
+</ul>
+</section>
+    </article>
+  </div>
+  <section class="shots wrap" aria-labelledby="telas-title">
+    <h2 id="telas-title" class="section-title">Telas</h2>
+    <div class="gallery"><figure class="shot">
+          <a href="/img/facgestor/01-login.webp"><img src="/img/facgestor/01-login.webp" srcset="/img/facgestor/01-login-720.webp 720w, /img/facgestor/01-login.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Tela de entrada da demo, com os perfis de demonstração prontos para clicar." loading="lazy" decoding="async"></a>
+          <figcaption>Tela de entrada da demo, com os perfis de demonstração prontos para clicar.</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/facgestor/02-dashboard.webp"><img src="/img/facgestor/02-dashboard.webp" srcset="/img/facgestor/02-dashboard-720.webp 720w, /img/facgestor/02-dashboard.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Painel com indicadores de pedidos, produção e financeiro." loading="lazy" decoding="async"></a>
+          <figcaption>Painel com indicadores de pedidos, produção e financeiro.</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/facgestor/03-pedidos.webp"><img src="/img/facgestor/03-pedidos.webp" srcset="/img/facgestor/03-pedidos-720.webp 720w, /img/facgestor/03-pedidos.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Lista de pedidos com status, ou o modal de importação por CSV." loading="lazy" decoding="async"></a>
+          <figcaption>Lista de pedidos com status, ou o modal de importação por CSV.</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/facgestor/04-producao.webp"><img src="/img/facgestor/04-producao.webp" srcset="/img/facgestor/04-producao-720.webp 720w, /img/facgestor/04-producao.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Acompanhamento de lotes de produção (planejado, em andamento, concluído)." loading="lazy" decoding="async"></a>
+          <figcaption>Acompanhamento de lotes de produção (planejado, em andamento, concluído).</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/facgestor/05-analise-de-custos.webp"><img src="/img/facgestor/05-analise-de-custos.webp" srcset="/img/facgestor/05-analise-de-custos-720.webp 720w, /img/facgestor/05-analise-de-custos.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Análise de custo de uma receita, com ingredientes, custos operacionais e preço sugerido." loading="lazy" decoding="async"></a>
+          <figcaption>Análise de custo de uma receita, com ingredientes, custos operacionais e preço sugerido.</figcaption>
+        </figure><figure class="shot">
+          <a href="/img/facgestor/06-financeiro.webp"><img src="/img/facgestor/06-financeiro.webp" srcset="/img/facgestor/06-financeiro-720.webp 720w, /img/facgestor/06-financeiro.webp 1440w" sizes="(min-width: 900px) 560px, 100vw" width="1440" height="900" alt="Painel financeiro com receitas, custos, despesas, saldo e a lista de contas a pagar e a receber." loading="lazy" decoding="async"></a>
+          <figcaption>Painel financeiro com receitas, custos, despesas, saldo e a lista de contas a pagar e a receber.</figcaption>
+        </figure></div>
+    <div class="gallery gallery--mobile"><figure class="shot shot--mobile">
+          <a href="/img/facgestor/07-mobile-dashboard.webp"><img src="/img/facgestor/07-mobile-dashboard.webp" width="390" height="844" alt="Painel inicial no celular." loading="lazy" decoding="async"></a>
+          <figcaption>Painel inicial no celular.</figcaption>
+        </figure><figure class="shot shot--mobile">
+          <a href="/img/facgestor/08-mobile-pedidos.webp"><img src="/img/facgestor/08-mobile-pedidos.webp" width="390" height="844" alt="Lista de pedidos no celular." loading="lazy" decoding="async"></a>
+          <figcaption>Lista de pedidos no celular.</figcaption>
+        </figure></div>
+  </section>
+  <nav class="neighbours wrap" aria-label="Outros projetos">
+    <a class="neighbour neighbour--prev" href="/projetos/kozzia/"><span>Anterior:</span> Kozzia</a>
+    <a class="neighbour neighbour--next" href="/projetos/nero/"><span>Próximo:</span> NERO</a>
+  </nav>
+</main>
+<footer class="site-footer" id="contato">
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-name">João Gabriel</p>
+      <p class="footer-role">Desenvolvedor full stack em Goiânia. Aberto a trabalho remoto como PJ.</p>
+    </div>
+    <ul class="contacts contacts--compact">
+    <li><span class="contact-label">E-mail</span> <a href="mailto:joaogfdiogo@gmail.com">joaogfdiogo@gmail.com</a></li>
+    <li><span class="contact-label">LinkedIn</span> <a href="https://www.linkedin.com/in/joaogfdiogo/">linkedin.com/in/joaogfdiogo</a></li>
+    <li><span class="contact-label">GitHub</span> <a href="https://github.com/Flodyz">github.com/Flodyz</a></li>
+  </ul>
+  </div>
+  <div class="wrap footer-note">
+    <p>Páginas geradas a partir dos estudos de caso em Markdown. Demos com dados fictícios. 2026.</p>
+  </div>
+</footer>
+</body>
+</html>
