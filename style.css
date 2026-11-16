@@ -413,13 +413,17 @@ code {
 
 /* Capa tipográfica: projetos ainda sem prints */
 
-.cover {
+/* O container é o pai (.card-media): um elemento não mede cqi sobre si mesmo. */
+.card-media {
   container-type: inline-size;
+}
+
+.cover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding: 6cqi 6cqi 4cqi;
+  padding: 6cqi 6cqi 5cqi;
   background: var(--cover);
   color: #ffffff;
   overflow: hidden;
@@ -436,24 +440,11 @@ code {
 .cover-title {
   font-size: 16cqi;
   font-weight: 800;
-  line-height: 0.85;
+  line-height: 1;
   letter-spacing: -0.05em;
   white-space: nowrap;
 }
 
-.cover--large {
-  aspect-ratio: 21 / 8;
-  height: auto;
-  padding: 4cqi 4cqi 3cqi;
-}
-
-.cover--large .cover-stack {
-  font-size: max(0.8125rem, 1.8cqi);
-}
-
-.cover--large .cover-title {
-  font-size: 13cqi;
-}
 
 /* Início: como trabalho */
 
@@ -691,7 +682,6 @@ code {
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.1;
-  font-variant-numeric: tabular-nums;
 }
 
 .facts-heading {

@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css?v=b88bea4da0">
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -48,10 +48,7 @@
     <div class="actions"><a class="button" href="mailto:joaogfdiogo@gmail.com?subject=Acesso%20ao%20c%C3%B3digo%20do%20Barbaggio&amp;body=Ol%C3%A1%2C%20Jo%C3%A3o%20Gabriel.%0A%0AGostaria%20de%20acesso%20de%20leitura%20ao%20c%C3%B3digo%20do%20Barbaggio.%0AMeu%20usu%C3%A1rio%20no%20GitHub%3A%20%0A">Código privado: acesso de leitura sob pedido</a></div>
     
   </header>
-  <div class="wrap"><div class="project-figure"><div class="cover cover--large" style="--cover: #5C3420" aria-hidden="true">
-      <span class="cover-stack">TypeScript, React, Vite, Tailwind CSS</span>
-      <span class="cover-title">Barbaggio</span>
-    </div></div></div>
+  
   <div class="project-layout wrap">
     <aside class="facts" aria-label="Ficha do projeto">
       <dl class="facts-list">
@@ -77,6 +74,7 @@
 <li><strong>LGPD:</strong> prazos de guarda, exclusão, anonimização e exportação dos dados do titular.</li>
 <li><strong>Importação por planilha</strong> para migrar clientes e cadastros, e um site de vendas próprio (Astro).</li>
 </ul>
+<p>Hoje o sistema está em homologação: falta só a aprovação da Meta para o envio oficial pelo WhatsApp entrar em produção.</p>
 </section>
 <section><h2>Destaques técnicos</h2><ul>
 <li><strong>Multi-tenant pelo token, nunca pelo cliente.</strong> A barbearia ativa vem sempre do JWT, guardado em cookie HttpOnly, e não de um cabeçalho que o navegador possa trocar. Trocar de unidade é uma rota própria que emite uma sessão nova. O refresh token é rotativo com detecção de reuso: um token já usado invalida a família inteira. Cada requisição confere no banco se a barbearia existe, está ativa e se a assinatura está em dia.</li>
@@ -106,7 +104,7 @@
   <div class="wrap footer-inner">
     <div>
       <p class="footer-name">João Gabriel</p>
-      <p class="footer-role">Desenvolvedor full stack em Goiânia. Aberto a trabalho remoto como PJ.</p>
+      <p class="footer-role">Desenvolvedor full stack em Goiânia. Aberto a novas oportunidades.</p>
     </div>
     <ul class="contacts contacts--compact">
     <li><span class="contact-label">E-mail</span> <a href="mailto:joaogfdiogo@gmail.com">joaogfdiogo@gmail.com</a></li>

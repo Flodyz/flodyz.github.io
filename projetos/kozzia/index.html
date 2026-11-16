@@ -23,7 +23,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
-<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/style.css?v=b88bea4da0">
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
@@ -48,10 +48,7 @@
     
     
   </header>
-  <div class="wrap"><div class="project-figure"><div class="cover cover--large" style="--cover: #1E5444" aria-hidden="true">
-      <span class="cover-stack">TypeScript, React, Vite, Tailwind CSS</span>
-      <span class="cover-title">Kozzia</span>
-    </div></div></div>
+  
   <div class="project-layout wrap">
     <aside class="facts" aria-label="Ficha do projeto">
       <dl class="facts-list">
@@ -76,6 +73,7 @@
 <li><strong>Caixa e financeiro:</strong> abertura e fechamento de caixa com sangria e suprimento, contas a pagar e a receber com recorrência, resumo do mês e um painel inicial com faturamento, lucro estimado e comparação com a semana anterior.</li>
 <li><strong>Equipe e permissões:</strong> papéis por operador (o atendente não vê custo), troca rápida de operador por PIN e exportação dos dados em CSV.</li>
 </ul>
+<p>Hoje o sistema está em testes com o cliente, na operação real, antes da implantação definitiva.</p>
 </section>
 <section><h2>Destaques técnicos</h2><ul>
 <li><strong>PDV offline de verdade.</strong> O aparelho guarda um instantâneo da loja (cardápio, caixa, operadores, clientes recentes) no IndexedDB e, sem internet, grava cada venda, mudança de status e movimento de caixa numa fila local. Quando a conexão volta, a fila é enviada em lotes. A detecção de conexão é por ping ao servidor, não pelo <code>navigator.onLine</code>, que não é confiável. O service worker só guarda os arquivos do app, nunca respostas da API: um cache de API serviria dado velho sem ninguém saber.</li>
@@ -106,7 +104,7 @@
   <div class="wrap footer-inner">
     <div>
       <p class="footer-name">João Gabriel</p>
-      <p class="footer-role">Desenvolvedor full stack em Goiânia. Aberto a trabalho remoto como PJ.</p>
+      <p class="footer-role">Desenvolvedor full stack em Goiânia. Aberto a novas oportunidades.</p>
     </div>
     <ul class="contacts contacts--compact">
     <li><span class="contact-label">E-mail</span> <a href="mailto:joaogfdiogo@gmail.com">joaogfdiogo@gmail.com</a></li>
